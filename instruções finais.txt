@@ -1,0 +1,34 @@
+Fonte Principal:
+
+Arial: Tamanho 12
+Times New Roman: Tamanho 12
+Calibri: Tamanho 11 (algumas instituições aceitam)
+Títulos e Subtítulos:
+
+Títulos Principais: Arial ou Times New Roman, tamanho 14 em negrito
+Subtítulos: Arial ou Times New Roman, tamanho 12 em negrito
+
+
+CABEÇALHO
+
+[Logo da Instituição]
+Título do Documento
+Nome do Autor
+Nome da Instituição
+Data
+Página 1
+
+
+DOCUMENTO DEVE TER:
+
+-História do usuário
+-Arquitetura
+-Requisitos
+-stack Holder
+-Conclusão
+
+Anexos:
+-diagrana de classe 
+-diagrama de fluxo
+-proto
+-dre
