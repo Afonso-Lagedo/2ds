@@ -1,0 +1,12 @@
+Ter o node e npm instalados localmente
+
+Para verificar:
+node -v
+npm -v
+
+Express:
+npm install express --save
+
+#nodemon
+npm install nodemon -g
+nodemon FILEnAME
