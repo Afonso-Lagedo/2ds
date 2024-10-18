@@ -21,10 +21,13 @@ app.get("/teste", function (req, res) {
   res.send("Hello Teste");
 });
 
-app.get("/login/:email/:senha", function (req, res) {
-    res.send(req.params.email);
-  });
+app.get("/login/:email/:senha/:idade", function (req, res) {
+    res.send(req.params);
+});
 
+app.get("/htmlteste", function (req, res) {
+  res.sendFile(__dirname + "/html/index.html");
+});
 
 //SEMPRE MANTENHA NO FINAL DO CÒDIGO JJ
 app.listen(3031, function () {
