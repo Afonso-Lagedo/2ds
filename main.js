@@ -26,6 +26,7 @@ rotas.get("/", function (req, res) {
     res.send("Rota principal");
 });
 
+//salvar
 rotas.get("/salvar/:nome/:idade", async function (req, res) {
     const { nome, idade } = req.params;
 
@@ -35,6 +36,12 @@ rotas.get("/salvar/:nome/:idade", async function (req, res) {
       resposta: "Aluno criado com sucesso",
       aluno: novoAluno,
     });
+});
+
+// Exibir todos os alunos
+rotas.get("/mostrar", async function (req, res) {
+    const alunos = await Aluno.findAll(); // Busca todos os registros
+    res.json(alunos); // Retorna os registros em formato JSON
 });
 
 //###Servidor###
