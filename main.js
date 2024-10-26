@@ -71,9 +71,19 @@ rotas.get("/editar/:id/:nome/:idade", async function (req, res) {
   });
 
 // Exibir todos os alunos
-rotas.get("/mostrar", async function (req, res) {
+/*rotas.get("/mostrar", async function (req, res) {
     const alunos = await Aluno.findAll(); // Busca todos os registros
     res.json(alunos); // Retorna os registros em formato JSON
+});*/
+
+// Exibir todos os alunos com tratativa de erros:
+rotas.get("/mostrar", async function (req, res) {
+    try {
+        const alunos = await Aluno.findAll(); // Busca todos os registros
+        res.json(alunos); // Retorna os registros em formato JSON
+    } catch (error) {
+        res.status(500).json({ message: `Erro ao buscar alunos: ${error}` }); // Retorna erro ao cliente
+    }
 });
 
 //###Servidor###
