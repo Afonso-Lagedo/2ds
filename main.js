@@ -53,6 +53,23 @@ rotas.get("/deletar/:id", async function (req, res) {
     }
   });
 
+// Editar aluno via ID, nome e idade como parâmetros
+rotas.get("/editar/:id/:nome/:idade", async function (req, res) {
+    const { id, nome, idade } = req.params;
+    const idNumber = parseInt(id, 10); // Converte o ID para número
+  
+    const [updated] = await Aluno.update(
+      { nome, idade },
+      {
+        where: { id: idNumber }, // Usa o ID numérico
+      }
+    );
+  
+    res.json({
+      mensagem: "Aluno atualizado com sucesso",
+    });
+  });
+
 // Exibir todos os alunos
 rotas.get("/mostrar", async function (req, res) {
     const alunos = await Aluno.findAll(); // Busca todos os registros
