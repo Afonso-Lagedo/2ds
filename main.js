@@ -19,7 +19,7 @@ const Aluno = conexaoBanco.define("alunos", {
   },
 });
 
-Aluno.sync({ force: true }); 
+Aluno.sync({ force: false }); //false para não deletar a porra do banco existente 
 
 //###Rotas###
 rotas.get("/", function (req, res) {
@@ -37,6 +37,21 @@ rotas.get("/salvar/:nome/:idade", async function (req, res) {
       aluno: novoAluno,
     });
 });
+
+rotas.get("/deletar/:id", async function (req, res) {
+    const { id } = req.params;
+    const idNumber = parseInt(id, 10); // Converte o ID para número
+  
+    const deleted = await Aluno.destroy({
+      where: { id: idNumber },
+    });
+  
+    if (deleted) {
+      res.json({ mensagem: "Aluno deletado com sucesso" });
+    } else {
+      res.status(404).json({ mensagem: "Aluno não encontrado" });
+    }
+  });
 
 // Exibir todos os alunos
 rotas.get("/mostrar", async function (req, res) {
